@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<body>
+<div id="wrap">
+    <input type="text" v-model="modelStr1">
+    <input type="text" v-model="modelStr2">
+    <input type="text" v-model="modelStr">
+    <div v-class="className" class="abc">{{modelStr2}}</div>
+    <p v-class="className" class="abc">{{modelStr1}}</p>
+    <p v-class="className" class="abc">{{modelStr}}
+        <span v-text="child.someStr"></span>
+    </p>
+    <p v-html="htmlStr"></p>
+    <button v-on:click="clear">清空</button>
+</div>
+
+<script src="mvvm.js"></script>
+<script>
+  let vm = new MVVM({
+    el: '#wrap',
+    data: {
+      modelStr: '',
+      modelStr1: '',
+      modelStr2: '',
+      className: 'btn',
+      htmlStr: '<span style="color: red;">red</span>',
+      child: {
+        someStr: '初始值'
+      }
+    },
+
+    methods: {
+      clear() {
+        this.modelStr = null
+        this.child.someStr = null
+      }
+    }
+  })
+
+  vm.$watch('child.someStr', function () {
+    console.log(arguments)
+  })
+</script>
+</body>
+</html>

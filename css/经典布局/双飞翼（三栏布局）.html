@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        /*
+        为了中间div内容不被遮挡，直接在中间div内部创建子div用于放置内容，
+        在该子div里用margin-left和margin-right为左右两栏div留出位置。多了1个div，
+        */
+        /* 利用浮动 */
+        body {
+            min-width: 600px;
+        }
+
+        .content {
+            overflow: hidden; /* 触发BFC闭合浮动 */
+        }
+
+        .l_aside, .main, .r_aside {
+            float: left;
+            min-height: 300px;
+        }
+
+        .l_aside {
+            width: 200px;
+            margin-left: -100%; /* 关键地方 左移一整行*/
+            background-color: #39d4a2;
+            border: 1px solid grey;
+            box-sizing: border-box; /* 解决边框问题 */
+        }
+
+        .r_aside {
+            width: 200px;
+            margin-left: -200px; /* 关键地方 */
+            background-color: #d42fab;
+            border: 1px solid grey;
+            box-sizing: border-box;
+        }
+
+        .main {
+            width: 100%;
+        }
+
+        .main-inner {
+            margin-left: 200px; /*解决内容覆盖，腾出空间*/
+            margin-right: 200px;
+            min-height: 300px;
+            background-color: #0b8bd4;
+        }
+
+        .footer {
+            clear: both;
+        }
+    </style>
+</head>
+<body>
+<div class="header">header</div>
+<div class="content">
+    <div class="main">
+        <div class="main-inner">
+            自适应自适应自适应自适应自适应自适应自适应自适应自适应自适应自适应自适应自适应自适应自适应自适应自适应自适应自适应自适应自适应自适应自适应自适应自适应自适应自适应自适应自适应自适应自适应自适应自适应自适应自适应自适应自适应自适应自适应自适应自适应自适应自适应自适应自适应自适应自适应自适应自适应自适应自适应自适应自适应自适应自适应自适应自适应自适应自适应自适应自适应自适应自适应自适应自适应自适应自适应自适应自适应自适应自适应
+        </div>
+    </div>
+    <div class="l_aside">左定宽</div>
+    <div class="r_aside">右定宽</div>
+</div>
+<div class="footer">footer</div>
+</body>
+</html>
